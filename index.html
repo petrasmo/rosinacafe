@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rosina Cafe | All Day Breakfast, Lunch & Dinner</title>
+    <!-- Šriftai iš Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS moderniam dizainui -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        oswald: ['Oswald', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#0b0f19] text-slate-300 font-sans antialiased">
+
+    <!-- Viršutinė kontakto juosta -->
+    <div class="bg-[#080c14] text-xs text-slate-400 py-2.5 border-b border-amber-400/20">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-2">
+            <span class="flex items-center gap-1.5">
+                <span class="text-amber-400">📞</span> Call to order: <strong class="text-white">01708 89 00 03</strong>
+            </span>
+            <span class="flex items-center gap-1.5">
+                <span class="text-amber-400">📍</span> London Road, South Ockendon, RM15 4XT
+            </span>
+        </div>
+    </div>
+
+    <!-- Navigacija (Header) -->
+    <nav class="bg-[#0f172a]/90 backdrop-blur-md border-b border-slate-900 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#home" class="flex items-center gap-3 group">
+                <img src="logo.png" alt="Rosina Cafe" class="h-14 w-auto object-contain transition group-hover:scale-105">
+                <span class="font-oswald text-2xl font-bold tracking-wider text-amber-400">ROSINA CAFE</span>
+            </a>
+            <div class="flex items-center space-x-6 text-sm font-semibold uppercase tracking-wider">
+                <a href="#home" class="hover:text-amber-400 transition text-slate-200">Home</a>
+                <a href="#story" class="hover:text-amber-400 transition text-slate-200">Our Story</a>
+                <a href="#menu" class="hover:text-amber-400 transition text-slate-200">Menu</a>
+                <a href="#hours" class="hover:text-amber-400 transition text-slate-200">Opening Times</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero sekcija -->
+    <header id="home" class="relative overflow-hidden py-16 md:py-24 border-b border-slate-900">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(248,208,36,0.08),transparent_50%)]"></div>
+        <div class="max-w-6xl mx-auto px-4 relative z-10">
+            <div class="grid md:grid-cols-12 gap-12 items-center">
+                <div class="md:col-span-7 space-y-6 text-center md:text-left">
+                    <span class="bg-amber-400/10 text-amber-400 border border-amber-400/25 text-xs px-3 py-1.5 rounded-full font-bold uppercase tracking-widest">
+                        Awarded 5 Stars By Thurrock Council ⭐⭐⭐⭐⭐
+                    </span>
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight font-oswald">
+                        ALL DAY BREAKFAST, <br>
+                        <span class="text-amber-400">LUNCH & DINNER</span>
+                    </h1>
+                    <p class="text-slate-400 text-base md:text-lg leading-relaxed">
+                        Nestled along London Road in South Ockendon, Rosina Cafe offers a delightful fusion of British and Galician flavors in a warm, welcoming atmosphere. We serve high-quality, freshly prepared traditional breakfasts, hearty lunches, and delicious dinners.
+                    </p>
+                    <div class="bg-amber-400/5 border-l-4 border-amber-400 p-4 rounded-r-xl max-w-xl text-left">
+                        <h4 class="text-amber-400 font-bold text-sm uppercase tracking-wider">FREE OFFER!</h4>
+                        <p class="text-xs text-slate-300 mt-1">Get 2 portions of Hash Browns or Chips when you order £20 or more over the phone!</p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4 pt-2">
+                        <a href="#menu" class="bg-amber-400 text-slate-950 text-center px-8 py-3 rounded-lg font-bold hover:bg-amber-350 transition duration-300 uppercase tracking-wider text-sm">View Menu</a>
+                        <a href="tel:01708890003" class="border border-slate-700 text-slate-200 text-center px-8 py-3 rounded-lg font-bold hover:bg-slate-800 transition duration-300 uppercase tracking-wider text-sm">Call to Order</a>
+                    </div>
+                </div>
+                <div class="md:col-span-5 flex justify-center">
+                    <div class="relative group max-w-sm">
+                        <div class="absolute -inset-1.5 bg-gradient-to-r from-amber-400 to-amber-500 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+                        <div class="relative bg-slate-900 border border-slate-800 p-8 rounded-2xl text-center space-y-4">
+                            <span class="text-4xl">🍳</span>
+                            <h3 class="text-xl font-bold text-white font-oswald uppercase tracking-wider">Eat In or Take Away</h3>
+                            <p class="text-slate-400 text-xs">All our meals are prepared fresh on order using select ingredients. Telephone orders are always welcome.</p>
+                            <div class="pt-4 border-t border-slate-800">
+                                <span class="text-xs text-slate-500 uppercase block">Main Line</span>
+                                <a href="tel:01708890003" class="text-xl font-bold text-amber-400 hover:underline">01708 89 00 03</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mūsų istorija -->
+    <section id="story" class="py-20 bg-[#080c14] border-b border-slate-900 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-12 gap-12 items-center">
+                <div class="md:col-span-7 space-y-6">
+                    <span class="text-xs font-bold text-amber-400 uppercase tracking-widest">Nestled in South Ockendon</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white font-oswald uppercase tracking-wider">
+                        Rosina Cafe: A Culinary Gem in South Ockendon
+                    </h2>
+                    <p class="text-slate-300 text-sm leading-relaxed text-justify">
+                        Nestled along London Road in South Ockendon, England, Rosina Cafe stands as a cherished culinary gem, offering a delightful fusion of British and Galician flavors in a warm, welcoming atmosphere. With a reputation for hearty meals, generous portions, and friendly service, it's no wonder that both locals and visitors consider Rosina Cafe a must-visit destination.
+                    </p>
+                    <p class="text-slate-300 text-sm leading-relaxed text-justify">
+                        Owned and operated by Yunus Kosar, Rosina Cafe has been serving the community with a diverse menu that caters to various tastes and dietary preferences. From traditional English breakfasts (such as bacon, sausage, eggs, and rolls) to Galician-inspired specialties, the cafe offers a unique dining experience that reflects its commitment to quality, cleanliness, and authenticity.
+                    </p>
+                </div>
+                <div class="md:col-span-5 space-y-6">
+                    <div class="bg-slate-900/60 p-6 rounded-xl border border-slate-800 space-y-2">
+                        <h4 class="text-white font-bold font-oswald text-lg">Diverse Menu & Flavors</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Enjoy classic British dishes like bacon, sausages & egg rolls alongside Galician-inspired specialties. Vegetarian, vegan, and gluten-free options are always available.
+                        </p>
+                    </div>
+                    <div class="bg-slate-900/60 p-6 rounded-xl border border-slate-800 space-y-2">
+                        <h4 class="text-white font-bold font-oswald text-lg">Exceptional Service</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Praised for generous portions, immaculate cleanliness, and friendly, attentive staff under the dedicated management of Yunus Kosar.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dinaminis Meniu Blokas (PILNAI VALDOMAS IŠ FIREBASE FIRESTORE) -->
+    <main id="menu" class="max-w-6xl mx-auto px-4 py-20">
+        <div id="dynamic-menu-container" class="space-y-16">
+            <!-- Čia „Javascript“ automatiškai išrikiuos visas 6 kategorijas ir subkategorijas -->
+            <p class="text-slate-500 text-center font-oswald">Loading Rosina Cafe Menu Database...</p>
+        </div>
+    </main>
+
+    <!-- Darbo laikas ir Kontaktai -->
+    <section id="hours" class="bg-[#080c14] border-t border-slate-900 py-20 px-4">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+            
+            <!-- Gyvas Darbo Laikas -->
+            <div class="bg-slate-900/40 border border-slate-800/60 p-8 rounded-2xl">
+                <h3 class="font-oswald text-2xl font-bold text-amber-400 mb-6 border-b border-slate-800 pb-3 uppercase tracking-wider">Opening Times</h3>
+                <ul id="hours-list" class="space-y-3 text-sm">
+                    <li class="text-slate-500">Connecting to database...</li>
+                </ul>
+            </div>
+
+            <!-- Vieta su tikru Google Maps žemėlapiu -->
+            <div class="bg-slate-900/40 border border-slate-800/60 p-8 rounded-2xl flex flex-col justify-between space-y-6">
+                <div>
+                    <h3 class="font-oswald text-2xl font-bold text-amber-400 mb-6 border-b border-slate-800 pb-3 uppercase tracking-wider">Our Location</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                        📍 <strong>Rosina Cafe</strong><br>
+                        London Road, South Ockendon, RM15 4XT, United Kingdom
+                    </p>
+                    
+                    <div class="w-full h-52 rounded-xl overflow-hidden border border-slate-800 shadow-inner">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.5670830491825!2d0.2789139!3d51.5028448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a67035414d9b%3A0x7c73a0ef6df4a938!2sLondon%20Rd%2C%20South%20Ockendon%20RM15%204XT%2C%20UK!5e0!3m2!1sen!2slt!4v1710000000000!5m2!1sen!2slt" 
+                            class="w-full h-full border-0" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+                
+                <div class="bg-slate-950/80 p-6 rounded-xl border border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <div class="text-center sm:text-left">
+                        <span class="text-xs text-slate-500">Telephone orders welcome</span>
+                        <h4 class="text-lg font-bold text-white">Order directly over phone</h4>
+                    </div>
+                    <a href="tel:01708890003" class="bg-amber-400 hover:bg-amber-350 text-slate-950 font-bold px-6 py-2.5 rounded-lg text-sm transition duration-300 uppercase tracking-wider whitespace-nowrap">
+                        Call: 01708 890003
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-[#05070c] text-slate-600 py-8 px-4 text-center text-xs border-t border-slate-950">
+        <p>&copy; 2026 Rosina Cafe. All rights reserved. Awarded 5 Stars by Thurrock Council.</p>
+    </footer>
+
+    <!-- Firebase SDK sriegiai -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+    <script>
+        // === 1. FIREBASE KONFIGŪRACIJA ===
+        const firebaseConfig = {
+          apiKey: "AIzaSyAqSJK52VfQU4Edn1v2RUB3F1DyxniR4Eo",
+          authDomain: "rosinacafe-5d8b6.firebaseapp.com",
+          projectId: "rosinacafe-5d8b6",
+          storageBucket: "rosinacafe-5d8b6.firebasestorage.app",
+          messagingSenderId: "1098059486338",
+          appId: "1:1098059486338:web:14ad73f69a0bb99ac4509b"
+        };
+
+        // Inicializuojame Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // A. Gyvas darbo laiko klausymasis iš Firebase Firestore!
+        function listenToOpeningHours() {
+            const hoursListContainer = document.getElementById('hours-list');
+
+            db.collection("settings").doc("cafe_info").onSnapshot((doc) => {
+                if (doc.exists && doc.data().hours) {
+                    const hoursData = doc.data().hours;
+                    
+                    hoursListContainer.innerHTML = hoursData.map(item => {
+                        const isClosed = item.openTime === "Closed";
+                        const timeText = isClosed ? "Closed" : `${item.openTime} - ${item.closeTime}`;
+                        const timeClass = isClosed ? "text-red-500 font-bold" : "text-slate-200";
+                        
+                        return `
+                            <li class="flex justify-between border-b border-slate-800/30 pb-2">
+                                <span>${item.day}</span>
+                                <span class="${timeClass}">${timeText}</span>
+                            </li>
+                        `;
+                    }).join('');
+                } else {
+                    hoursListContainer.innerHTML = `<li class="text-red-500">Error: Schedule not found in database.</li>`;
+                }
+            }, (error) => {
+                console.error("Firestore error:", error);
+                hoursListContainer.innerHTML = `<li class="text-red-500 font-semibold">Offline: Please refresh again later.</li>`;
+            });
+        }
+
+        // B. GYVAS PILNO MENIU NUSKAITYMAS IŠ FIREBASE FIRESTORE!
+        function listenToDynamicMenu() {
+            db.collection("menu").onSnapshot((snapshot) => {
+                const items = [];
+                snapshot.forEach((doc) => {
+                    const data = doc.data();
+                    // Rodome tik aktyvias (enabled: true) prekes
+                    if (data.enabled !== false) {
+                        items.push(data);
+                    }
+                });
+
+                renderMenu(items);
+            }, (error) => {
+                console.error("Firestore menu error:", error);
+            });
+        }
+
+        // C. IŠMANUS MENIU GENERAVIMAS (Pagal 6 bendras kategorijas ir subkategorijas)
+        function renderMenu(items) {
+            const container = document.getElementById('dynamic-menu-container');
+            let html = '';
+
+            // 6 pagrindinės, jūsų pasirinktos kategorijos (Tabai) su ikonomis
+            const mainCategories = [
+                { name: "Breakfast", icon: "🍳" },
+                { name: "Mains", icon: "🍽️" },
+                { name: "Sandwiches, Rolls & Burgers", icon: "🥪" },
+                { name: "Salads", icon: "🥗" },
+                { name: "Kids & Desserts", icon: "🧸" },
+                { name: "Drinks", icon: "☕" }
+            ];
+
+            mainCategories.forEach(mainCat => {
+                // Filtruojame patiekalus, priklausančius šiam pagrindiniam tabui
+                const catItems = items.filter(it => it.category === mainCat.name);
+                if (catItems.length === 0) return;
+
+                // Sugeneruojame pagrindinį Tabo bloką su auksine linija
+                html += `
+                    <div class="mb-16">
+                        <h2 class="font-oswald text-3xl font-extrabold text-white mb-8 border-b-2 border-amber-400 pb-3 uppercase tracking-wider flex items-center gap-3">
+                            <span>${mainCat.icon}</span> <span>${mainCat.name}</span>
+                        </h2>
+                `;
+
+                // Išgauname visas unikalias šio tabo subkategorijas (antraštes)
+                const subcategories = [...new Set(catItems.map(it => it.subcategory))];
+
+                // Saugiklis sumuštiniams: jei turime ir Sandwiches, ir Rolls, apjungsime juos į vieną lentelę
+                const hasSandwichesAndRolls = subcategories.includes("Sandwiches") && subcategories.includes("Rolls");
+
+                subcategories.forEach(subName => {
+                    // Jei apjungiame, praleidžiame atskirą Sandwiches ir Rolls braižymą kaip sąrašų
+                    if (hasSandwichesAndRolls && (subName === "Sandwiches" || subName === "Rolls")) return;
+
+                    const subItems = catItems.filter(it => it.subcategory === subName);
+                    if (subItems.length === 0) return;
+
+                    html += `
+                        <div class="mb-10">
+                            <h3 class="font-oswald text-xl font-bold text-amber-400 mb-6 uppercase tracking-wider">
+                                ${subName}
+                            </h3>
+                    `;
+
+                    if (subName === "Set Breakfasts") {
+                        // A. Set Breakfasts atvaizdavimas gražiu 3 stulpelių tinkleliu (kaip ir anksčiau)
+                        html += `
+                            <div class="grid md:grid-cols-3 gap-6">
+                                ${subItems.map(item => `
+                                    <div class="bg-[#111827]/60 backdrop-blur border border-slate-800 p-6 rounded-xl flex flex-col justify-between">
+                                        <div>
+                                            <h4 class="text-lg font-bold text-white uppercase tracking-tight font-oswald">${item.name}</h4>
+                                            <p class="text-slate-400 text-xs mt-2 leading-relaxed">${item.description || ''}</p>
+                                        </div>
+                                        <span class="text-amber-400 font-bold text-lg mt-4 block font-oswald">£${item.price}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        `;
+                    } else if (subName === "Specials") {
+                        // B. Specials (Big Boys / Fat Boys) atvaizdavimas 2 stulpelių auksinėse kortelėse
+                        html += `
+                            <div class="grid md:grid-cols-2 gap-8">
+                                ${subItems.map(item => `
+                                    <div class="bg-gradient-to-r from-amber-400/10 to-amber-400/5 border border-amber-400/30 p-8 rounded-2xl text-center space-y-3">
+                                        <h3 class="font-oswald text-2xl font-bold text-amber-400 tracking-wider">${item.name}</h3>
+                                        <p class="text-slate-300 text-sm">${item.description || ''}</p>
+                                        <p class="text-[11px] text-slate-500 uppercase tracking-widest">Served with Toast or Bread, Tea or Coffee</p>
+                                        <span class="text-2xl font-extrabold text-white block font-oswald">£${item.price}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        `;
+                    } else {
+                        // C. Visos kitos subkategorijos (Omelettes, Burgers, Lunches ir t.t.) - grakštus 2 stulpelių kainoraštis
+                        html += `
+                            <div class="grid md:grid-cols-2 gap-x-12 gap-y-4">
+                                ${subItems.map(item => `
+                                    <div class="flex justify-between border-b border-slate-800/40 pb-2 text-sm">
+                                        <div class="flex flex-col">
+                                            <span class="font-semibold text-white">${item.name}</span>
+                                            ${item.description ? `<span class="text-xs text-slate-500">${item.description}</span>` : ''}
+                                        </div>
+                                        <strong class="text-white font-oswald">£${item.price}</strong>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        `;
+                    }
+
+                    html += `</div>`; // Uždaro subkategorijos bloką
+                });
+
+                // D. Išmanus sumuštinių ir bandelių (Rolls) apjungimas į vieną lentelę po vienu Tabu!
+                if (hasSandwichesAndRolls) {
+                    const sandwiches = catItems.filter(it => it.subcategory === "Sandwiches");
+                    const rolls = catItems.filter(it => it.subcategory === "Rolls");
+                    const fillings = [...new Set(sandwiches.map(it => it.name.replace(" Sandwich", "")))];
+
+                    html += `
+                        <div class="mb-10">
+                            <h3 class="font-oswald text-xl font-bold text-amber-400 mb-6 uppercase tracking-wider">
+                                Sandwiches & Rolls
+                            </h3>
+                            <div class="bg-slate-900/40 border border-slate-800/80 p-8 rounded-2xl overflow-hidden">
+                                <div class="overflow-x-auto">
+                                    <table class="w-full text-sm text-left text-slate-300">
+                                        <thead class="text-xs uppercase bg-[#0f172a] text-amber-400">
+                                            <tr>
+                                                <th class="px-6 py-3 rounded-l-lg">Filling</th>
+                                                <th class="px-6 py-3">Sandwich</th>
+                                                <th class="px-6 py-3 rounded-r-lg">Roll</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-slate-850">
+                                            ${fillings.map(filling => {
+                                                const sandItem = sandwiches.find(it => it.name === `${filling} Sandwich`);
+                                                const rollItem = rolls.find(it => it.name === `${filling} Roll`);
+                                                if (!sandItem && !rollItem) return '';
+                                                
+                                                return `
+                                                    <tr class="divide-x divide-slate-850">
+                                                        <td class="px-6 py-2.5 font-semibold text-white">${filling}</td>
+                                                        <td class="px-6 py-2.5">${sandItem ? `£${sandItem.price}` : '-'}</td>
+                                                        <td class="px-6 py-2.5">${rollItem ? `£${rollItem.price}` : '-'}</td>
+                                                    </tr>
+                                                `;
+                                            }).join('')}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                html += `</div>`; // Uždaro pagrindinės kategorijos bloką
+            });
+
+            container.innerHTML = html;
+        }
+
+        // Paleidžiame stebėtojus užsikrovus puslapiui
+        document.addEventListener('DOMContentLoaded', () => {
+            listenToOpeningHours();
+            listenToDynamicMenu();
+        });
+    </script>
+</body>
+</html>
