@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Rosina Cafe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        oswald: ['Oswald', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#0b0f19] text-slate-300 font-sans antialiased">
+
+    <!-- Viršutinis Header -->
+    <header class="bg-[#0f172a] border-b border-slate-900 py-6">
+        <div class="max-w-4xl mx-auto px-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <span class="font-oswald text-xl font-bold tracking-wider text-amber-400">ROSINA CAFE</span>
+            </div>
+            <a href="index.html" class="text-xs font-bold text-amber-400 uppercase tracking-widest hover:underline">Back to Website</a>
+        </div>
+    </header>
+
+    <!-- Pagrindinis Turinys -->
+    <main class="max-w-3xl mx-auto px-4 py-16 space-y-8">
+        
+        <div class="space-y-3">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-white font-oswald uppercase tracking-wider">Privacy Policy</h1>
+            <p class="text-xs text-slate-500 uppercase tracking-widest">Last Updated: August 2026</p>
+        </div>
+
+        <p class="text-slate-400 text-sm leading-relaxed text-justify">
+            This Privacy Policy governs the manner in which <strong>Rosina Cafe</strong> ("we", "our", "us") collects, uses, maintains, and discloses information collected from users ("User", "you") of the <strong>Rosina Cafe</strong> mobile application ("App") and website.
+        </p>
+
+        <hr class="border-slate-800">
+
+        <!-- Skiltis 1: Kokius duomenis renkame -->
+        <div class="space-y-4">
+            <h3 class="text-xl font-bold text-amber-400 font-oswald uppercase tracking-wider">1. Information We Collect</h3>
+            <p class="text-slate-400 text-sm leading-relaxed text-justify">
+                To facilitate your food ordering and preparation process inside our cafe, we collect certain limited personal information when you place a takeaway or dine-in order. This includes:
+            </p>
+            <ul class="list-disc pl-6 text-sm text-slate-400 space-y-2">
+                <li><strong>Customer Name:</strong> Used to label and identify your order.</li>
+                <li><strong>Phone Number:</strong> Used solely to contact you regarding your order status or in case of any issues with your meal.</li>
+                <li><strong>Order Details:</strong> The selected dishes, total price, and chosen dining option (Eat In or Takeaway).</li>
+            </ul>
+        </div>
+
+        <!-- Skiltis 2: Kaip saugomi duomenys -->
+        <div class="space-y-4">
+            <h3 class="text-xl font-bold text-amber-400 font-oswald uppercase tracking-wider">2. How Your Data is Secured and Stored</h3>
+            <p class="text-slate-400 text-sm leading-relaxed text-justify">
+                All order and customer data is securely transmitted and stored in our cloud-based database powered by <strong>Google Firebase Firestore</strong>. We implement industry-standard secure data storage practices to protect against unauthorized access, alteration, or disclosure of your personal information.
+            </p>
+        </div>
+
+        <!-- Skiltis 3: Dalinimasis duomenimis -->
+        <div class="space-y-4">
+            <h3 class="text-xl font-bold text-amber-400 font-oswald uppercase tracking-wider">3. Sharing Your Personal Information</h3>
+            <p class="text-slate-400 text-sm leading-relaxed text-justify">
+                We strictly <strong>do not sell, trade, rent, or share</strong> your personal identification information with any third-party marketing companies, advertisers, or outside partners. Your information is only shared internally with our kitchen staff to prepare and complete your active order.
+            </p>
+        </div>
+
+        <!-- Skiltis 4: Trečiųjų šalių paslaugos -->
+        <div class="space-y-4">
+            <h3 class="text-xl font-bold text-amber-400 font-oswald uppercase tracking-wider">4. Third-Party Services</h3>
+            <p class="text-slate-400 text-sm leading-relaxed text-justify">
+                Our application integrates specific, reliable services from Google Firebase to ensure stability and real-time operations:
+            </p>
+            <ul class="list-disc pl-6 text-sm text-slate-400 space-y-2">
+                <li><strong>Firebase Firestore:</strong> Used for secure menu retrieval and order database storage.</li>
+                <li><strong>Firebase Cloud Messaging (FCM):</strong> Used to send you automated local system notifications when your order status updates (e.g., when your meal is ready).</li>
+                <li><strong>Firebase Crashlytics:</strong> Used to anonymously log system crash reports to help us maintain app stability.</li>
+            </ul>
+        </div>
+
+        <!-- Skiltis 5: Jūsų teisės -->
+        <div class="space-y-4">
+            <h3 class="text-xl font-bold text-amber-400 font-oswald uppercase tracking-wider">5. Your Data Rights</h3>
+            <p class="text-slate-400 text-sm leading-relaxed text-justify">
+                Since we do not require account registration, we do not maintain long-term personal profiles. However, you have the full right to request the deletion of your historical phone orders or contact references from our Firestore database at any time by contacting us directly.
+            </p>
+        </div>
+
+        <!-- Skiltis 6: Kontaktai -->
+        <div class="space-y-4">
+            <h3 class="text-xl font-bold text-amber-400 font-oswald uppercase tracking-wider">6. Contacting Us</h3>
+            <p class="text-slate-400 text-sm leading-relaxed text-justify">
+                If you have any questions about this Privacy Policy, the practices of our App, or your dealings with this application, please contact our developer support team at:
+            </p>
+            <div class="bg-slate-900 p-6 rounded-xl border border-slate-800 text-sm space-y-1 max-w-sm">
+                <span class="text-slate-500 uppercase text-xs font-bold block mb-1">Developer Support</span>
+                <strong class="text-white">Petrasmo Studios</strong>
+                <p class="text-slate-400">Email: petrasmo@gmail.com</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Apvali juosta apačioje -->
+    <footer class="bg-[#05070c] text-slate-600 py-8 text-center text-xs border-t border-slate-950">
+        <p>&copy; 2026 Rosina Cafe. All rights reserved. Managed by Petrasmo Studios.</p>
+    </footer>
+
+</body>
+</html>
