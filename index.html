@@ -23,14 +23,14 @@
 </head>
 <body class="bg-[#0b0f19] text-slate-300 font-sans antialiased">
 
-    <!-- Viršutinė kontakto juosta -->
+    <!-- Viršutinė kontakto juosta (Atnaujinama iš Firebase) -->
     <div class="bg-[#080c14] text-xs text-slate-400 py-2.5 border-b border-amber-400/20">
         <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-2">
             <span class="flex items-center gap-1.5">
-                <span class="text-amber-400">📞</span> Call to order: <strong class="text-white">01708 89 00 03</strong>
+                <span class="text-amber-400">📞</span> Call to order: <strong class="text-white" id="top-phone">Loading...</strong>
             </span>
             <span class="flex items-center gap-1.5">
-                <span class="text-amber-400">📍</span> London Road, South Ockendon, RM15 4XT
+                <span class="text-amber-400">📍</span> <span id="top-address">Loading address...</span>
             </span>
         </div>
     </div>
@@ -73,7 +73,7 @@
                     </div>
                     <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4 pt-2">
                         <a href="#menu" class="bg-amber-400 text-slate-950 text-center px-8 py-3 rounded-lg font-bold hover:bg-amber-350 transition duration-300 uppercase tracking-wider text-sm">View Menu</a>
-                        <a href="tel:01708890003" class="border border-slate-700 text-slate-200 text-center px-8 py-3 rounded-lg font-bold hover:bg-slate-800 transition duration-300 uppercase tracking-wider text-sm">Call to Order</a>
+                        <a href="tel:01708890003" id="hero-call-btn" class="border border-slate-700 text-slate-200 text-center px-8 py-3 rounded-lg font-bold hover:bg-slate-800 transition duration-300 uppercase tracking-wider text-sm">Call to Order</a>
                     </div>
                 </div>
                 <div class="md:col-span-5 flex justify-center">
@@ -85,7 +85,7 @@
                             <p class="text-slate-400 text-xs">All our meals are prepared fresh on order using select ingredients. Telephone orders are always welcome.</p>
                             <div class="pt-4 border-t border-slate-800">
                                 <span class="text-xs text-slate-500 uppercase block">Main Line</span>
-                                <a href="tel:01708890003" class="text-xl font-bold text-amber-400 hover:underline">01708 89 00 03</a>
+                                <a href="tel:01708890003" id="hero-card-phone" class="text-xl font-bold text-amber-400 hover:underline">01708 89 00 03</a>
                             </div>
                         </div>
                     </div>
@@ -128,15 +128,14 @@
         </div>
     </section>
 
-    <!-- Dinaminis Meniu Blokas (PILNAI VALDOMAS IŠ FIREBASE FIRESTORE) -->
+    <!-- Dinaminis Meniu Blokas (Užkraunamas iš Firebase) -->
     <main id="menu" class="max-w-6xl mx-auto px-4 py-20">
         <div id="dynamic-menu-container" class="space-y-16">
-            <!-- Čia „Javascript“ automatiškai išrikiuos visas 6 kategorijas ir subkategorijas -->
             <p class="text-slate-500 text-center font-oswald">Loading Rosina Cafe Menu Database...</p>
         </div>
     </main>
 
-    <!-- Darbo laikas ir Kontaktai -->
+    <!-- Darbo laikas ir Kontaktai (Atnaujinami iš Firebase) -->
     <section id="hours" class="bg-[#080c14] border-t border-slate-900 py-20 px-4">
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
             
@@ -154,7 +153,8 @@
                     <h3 class="font-oswald text-2xl font-bold text-amber-400 mb-6 border-b border-slate-800 pb-3 uppercase tracking-wider">Our Location</h3>
                     <p class="text-slate-300 text-sm leading-relaxed mb-4">
                         📍 <strong>Rosina Cafe</strong><br>
-                        London Road, South Ockendon, RM15 4XT, United Kingdom
+                        <!-- Adresas atnaujinamas iš Firebase -->
+                        <span id="footer-address" class="text-white font-semibold">Purfleet Road, Aveley, South Ockendon RM15 4XT</span>
                     </p>
                     
                     <div class="w-full h-52 rounded-xl overflow-hidden border border-slate-800 shadow-inner">
@@ -168,12 +168,13 @@
                     </div>
                 </div>
                 
+                <!-- Skambučio mygtukas (Atnaujinamas iš Firebase) -->
                 <div class="bg-slate-950/80 p-6 rounded-xl border border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4">
                     <div class="text-center sm:text-left">
                         <span class="text-xs text-slate-500">Telephone orders welcome</span>
                         <h4 class="text-lg font-bold text-white">Order directly over phone</h4>
                     </div>
-                    <a href="tel:01708890003" class="bg-amber-400 hover:bg-amber-350 text-slate-950 font-bold px-6 py-2.5 rounded-lg text-sm transition duration-300 uppercase tracking-wider whitespace-nowrap">
+                    <a href="tel:01708890003" id="footer-call-btn" class="bg-amber-400 hover:bg-amber-350 text-slate-950 font-bold px-6 py-2.5 rounded-lg text-sm transition duration-300 uppercase tracking-wider whitespace-nowrap">
                         Call: 01708 890003
                     </a>
                 </div>
@@ -205,31 +206,62 @@
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
 
-        // A. Gyvas darbo laiko klausymasis iš Firebase Firestore!
-        function listenToOpeningHours() {
+        // A. GYVAS STEBĖTOJAS (Stebi nustatymus, valandas, adresą ir telefoną debesyje!)
+        function listenToCafeSettings() {
             const hoursListContainer = document.getElementById('hours-list');
 
             db.collection("settings").doc("cafe_info").onSnapshot((doc) => {
-                if (doc.exists && doc.data().hours) {
-                    const hoursData = doc.data().hours;
+                if (doc.exists) {
+                    const data = doc.data();
                     
-                    hoursListContainer.innerHTML = hoursData.map(item => {
-                        const isClosed = item.openTime === "Closed";
-                        const timeText = isClosed ? "Closed" : `${item.openTime} - ${item.closeTime}`;
-                        const timeClass = isClosed ? "text-red-500 font-bold" : "text-slate-200";
-                        
-                        return `
-                            <li class="flex justify-between border-b border-slate-800/30 pb-2">
-                                <span>${item.day}</span>
-                                <span class="${timeClass}">${timeText}</span>
-                            </li>
-                        `;
-                    }).join('');
+                    // 1. Gyvai nuskaitome ir atnaujiname kontaktus visur svetainėje!
+                    const rawAddress = data.address || "Purfleet Road, Aveley, South Ockendon RM15 4XT";
+                    const rawPhone = data.phone || "01708 890003";
+                    const cleanPhone = rawPhone.replace(/\s+/g, ''); // pašaliname tarpus saugiam skambučiui
+
+                    // Atnaujiname adresus
+                    document.getElementById('top-address').innerText = rawAddress;
+                    document.getElementById('footer-address').innerText = rawAddress;
+
+                    // Atnaujiname telefono tekstą viršutinėje juostoje
+                    document.getElementById('top-phone').innerText = rawPhone;
+
+                    // Atnaujiname visus skambučio mygtukus
+                    const heroCallBtn = document.getElementById('hero-call-btn');
+                    if (heroCallBtn) heroCallBtn.href = `tel:${cleanPhone}`;
+
+                    const heroCardPhone = document.getElementById('hero-card-phone');
+                    if (heroCardPhone) {
+                        heroCardPhone.href = `tel:${cleanPhone}`;
+                        heroCardPhone.innerText = rawPhone;
+                    }
+
+                    const footerCallBtn = document.getElementById('footer-call-btn');
+                    if (footerCallBtn) {
+                        footerCallBtn.href = `tel:${cleanPhone}`;
+                        footerCallBtn.innerText = `Call: ${rawPhone}`;
+                    }
+
+                    // 2. Gyvai atnaujiname darbo valandų lentelę
+                    if (data.hours) {
+                        hoursListContainer.innerHTML = data.hours.map(item => {
+                            const isClosed = item.openTime === "Closed";
+                            const timeText = isClosed ? "Closed" : `${item.openTime} - ${item.closeTime}`;
+                            const timeClass = isClosed ? "text-red-500 font-bold" : "text-slate-200";
+                            
+                            return `
+                                <li class="flex justify-between border-b border-slate-800/30 pb-2">
+                                    <span>${item.day}</span>
+                                    <span class="${timeClass}">${timeText}</span>
+                                </li>
+                            `;
+                        }).join('');
+                    }
                 } else {
-                    hoursListContainer.innerHTML = `<li class="text-red-500">Error: Schedule not found in database.</li>`;
+                    hoursListContainer.innerHTML = `<li class="text-red-500">Error: Cafe settings not found in database.</li>`;
                 }
             }, (error) => {
-                console.error("Firestore error:", error);
+                console.error("Firestore settings error:", error);
                 hoursListContainer.innerHTML = `<li class="text-red-500 font-semibold">Offline: Please refresh again later.</li>`;
             });
         }
@@ -240,7 +272,6 @@
                 const items = [];
                 snapshot.forEach((doc) => {
                     const data = doc.data();
-                    // Rodome tik aktyvias (enabled: true) prekes
                     if (data.enabled !== false) {
                         items.push(data);
                     }
@@ -257,7 +288,6 @@
             const container = document.getElementById('dynamic-menu-container');
             let html = '';
 
-            // 6 pagrindinės, jūsų pasirinktos kategorijos (Tabai) su ikonomis
             const mainCategories = [
                 { name: "Breakfast", icon: "🍳" },
                 { name: "Mains", icon: "🍽️" },
@@ -268,11 +298,9 @@
             ];
 
             mainCategories.forEach(mainCat => {
-                // Filtruojame patiekalus, priklausančius šiam pagrindiniam tabui
                 const catItems = items.filter(it => it.category === mainCat.name);
                 if (catItems.length === 0) return;
 
-                // Sugeneruojame pagrindinį Tabo bloką su auksine linija
                 html += `
                     <div class="mb-16">
                         <h2 class="font-oswald text-3xl font-extrabold text-white mb-8 border-b-2 border-amber-400 pb-3 uppercase tracking-wider flex items-center gap-3">
@@ -280,14 +308,10 @@
                         </h2>
                 `;
 
-                // Išgauname visas unikalias šio tabo subkategorijas (antraštes)
                 const subcategories = [...new Set(catItems.map(it => it.subcategory))];
-
-                // Saugiklis sumuštiniams: jei turime ir Sandwiches, ir Rolls, apjungsime juos į vieną lentelę
                 const hasSandwichesAndRolls = subcategories.includes("Sandwiches") && subcategories.includes("Rolls");
 
                 subcategories.forEach(subName => {
-                    // Jei apjungiame, praleidžiame atskirą Sandwiches ir Rolls braižymą kaip sąrašų
                     if (hasSandwichesAndRolls && (subName === "Sandwiches" || subName === "Rolls")) return;
 
                     const subItems = catItems.filter(it => it.subcategory === subName);
@@ -301,7 +325,6 @@
                     `;
 
                     if (subName === "Set Breakfasts") {
-                        // A. Set Breakfasts atvaizdavimas gražiu 3 stulpelių tinkleliu (kaip ir anksčiau)
                         html += `
                             <div class="grid md:grid-cols-3 gap-6">
                                 ${subItems.map(item => `
@@ -316,7 +339,6 @@
                             </div>
                         `;
                     } else if (subName === "Specials") {
-                        // B. Specials (Big Boys / Fat Boys) atvaizdavimas 2 stulpelių auksinėse kortelėse
                         html += `
                             <div class="grid md:grid-cols-2 gap-8">
                                 ${subItems.map(item => `
@@ -330,7 +352,6 @@
                             </div>
                         `;
                     } else {
-                        // C. Visos kitos subkategorijos (Omelettes, Burgers, Lunches ir t.t.) - grakštus 2 stulpelių kainoraštis
                         html += `
                             <div class="grid md:grid-cols-2 gap-x-12 gap-y-4">
                                 ${subItems.map(item => `
@@ -346,10 +367,9 @@
                         `;
                     }
 
-                    html += `</div>`; // Uždaro subkategorijos bloką
+                    html += `</div>`;
                 });
 
-                // D. Išmanus sumuštinių ir bandelių (Rolls) apjungimas į vieną lentelę po vienu Tabu!
                 if (hasSandwichesAndRolls) {
                     const sandwiches = catItems.filter(it => it.subcategory === "Sandwiches");
                     const rolls = catItems.filter(it => it.subcategory === "Rolls");
@@ -392,15 +412,15 @@
                     `;
                 }
 
-                html += `</div>`; // Uždaro pagrindinės kategorijos bloką
+                html += `</div>`;
             });
 
             container.innerHTML = html;
         }
 
-        // Paleidžiame stebėtojus užsikrovus puslapiui
+        // Paleidžiame stebėtojus startuojant svetainei
         document.addEventListener('DOMContentLoaded', () => {
-            listenToOpeningHours();
+            listenToCafeSettings();
             listenToDynamicMenu();
         });
     </script>
