@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rosina Cafe | All Day Breakfast, Lunch & Dinner</title>
+    <!-- BŪTINA SAVYBĖ: įdėta Favicon (piktograma viršuje naršyklės skirtuke) -->
+    <link rel="icon" type="image/png" href="logo.png">
+    
     <!-- Šriftai iš Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <!-- Tailwind CSS moderniam dizainui -->
@@ -94,11 +97,12 @@
         </div>
     </header>
 
-    <!-- Mūsų istorija -->
+    <!-- Mūsų istorija su integruotu pieštu paveikslėliu -->
     <section id="story" class="py-20 bg-[#080c14] border-b border-slate-900 px-4">
         <div class="max-w-6xl mx-auto">
             <div class="grid md:grid-cols-12 gap-12 items-center">
-                <div class="md:col-span-7 space-y-6">
+                <!-- Kairė pusė: Tekstas -->
+                <div class="md:col-span-6 space-y-6">
                     <span class="text-xs font-bold text-amber-400 uppercase tracking-widest">Nestled in South Ockendon</span>
                     <h2 class="text-3xl md:text-4xl font-bold text-white font-oswald uppercase tracking-wider">
                         Rosina Cafe: A Culinary Gem in South Ockendon
@@ -110,38 +114,55 @@
                         Owned and operated by Yunus Kosar, Rosina Cafe has been serving the community with a diverse menu that caters to various tastes and dietary preferences. From traditional English breakfasts (such as bacon, sausage, eggs, and rolls) to Galician-inspired specialties, the cafe offers a unique dining experience that reflects its commitment to quality, cleanliness, and authenticity.
                     </p>
                 </div>
-                <div class="md:col-span-5 space-y-6">
-                    <div class="bg-slate-900/60 p-6 rounded-xl border border-slate-800 space-y-2">
-                        <h4 class="text-white font-bold font-oswald text-lg">Diverse Menu & Flavors</h4>
-                        <p class="text-xs text-slate-400 leading-relaxed">
-                            Enjoy classic British dishes like bacon, sausages & egg rolls alongside Galician-inspired specialties. Vegetarian, vegan, and gluten-free options are always available.
-                        </p>
+                
+                <!-- Dešinė pusė: Jūsų gražus pieštas paveikslėlis -->
+                <div class="md:col-span-6 flex justify-center">
+                    <div class="relative group w-full">
+                        <!-- Švelnus geltonas švytėjimo efektas po paveikslėliu -->
+                        <div class="absolute -inset-1 bg-gradient-to-r from-amber-400/20 to-amber-500/10 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+                        <img src="cafe-building.png" alt="Rosina Cafe Illustration" class="relative w-full h-auto object-cover rounded-2xl border border-slate-800 shadow-2xl">
                     </div>
-                    <div class="bg-slate-900/60 p-6 rounded-xl border border-slate-800 space-y-2">
-                        <h4 class="text-white font-bold font-oswald text-lg">Exceptional Service</h4>
-                        <p class="text-xs text-slate-400 leading-relaxed">
-                            Praised for generous portions, immaculate cleanliness, and friendly, attentive staff under the dedicated management of Yunus Kosar.
-                        </p>
-                    </div>
+                </div>
+            </div>
+
+            <!-- Informacinės kortelės po paveikslėliu -->
+            <div class="grid md:grid-cols-2 gap-6 mt-12">
+                <div class="bg-slate-900/60 p-6 rounded-xl border border-slate-800 space-y-2">
+                    <h4 class="text-white font-bold font-oswald text-lg">Diverse Menu & Flavors</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Enjoy classic British dishes like bacon, sausages & egg rolls alongside Galician-inspired specialties. Vegetarian, vegan, and gluten-free options are always available.
+                    </p>
+                </div>
+                <div class="bg-slate-900/60 p-6 rounded-xl border border-slate-800 space-y-2">
+                    <h4 class="text-white font-bold font-oswald text-lg">Exceptional Service</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Praised for generous portions, immaculate cleanliness, and friendly, attentive staff under the dedicated management of Yunus Kosar.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Dinaminis Meniu Blokas (Užkraunamas iš Firebase) -->
+    <!-- Dinaminis Meniu Blokas -->
     <main id="menu" class="max-w-6xl mx-auto px-4 py-20">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-extrabold text-white font-oswald uppercase tracking-wider">Our Menu</h2>
+            <p class="text-slate-400 text-sm mt-2">Traditional meals prepared fresh on order.</p>
+        </div>
+
         <div id="dynamic-menu-container" class="space-y-16">
             <p class="text-slate-500 text-center font-oswald">Loading Rosina Cafe Menu Database...</p>
         </div>
     </main>
 
-    <!-- Darbo laikas ir Kontaktai (Atnaujinami iš Firebase) -->
+    <!-- Darbo laikas ir Kontaktai -->
     <section id="hours" class="bg-[#080c14] border-t border-slate-900 py-20 px-4">
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
             
-            <!-- Gyvas Darbo Laikas -->
+            <!-- Gyvas Darbo Laikas (Užkraunamas iš Firebase) -->
             <div class="bg-slate-900/40 border border-slate-800/60 p-8 rounded-2xl">
                 <h3 class="font-oswald text-2xl font-bold text-amber-400 mb-6 border-b border-slate-800 pb-3 uppercase tracking-wider">Opening Times</h3>
+                
                 <ul id="hours-list" class="space-y-3 text-sm">
                     <li class="text-slate-500">Connecting to database...</li>
                 </ul>
@@ -153,7 +174,6 @@
                     <h3 class="font-oswald text-2xl font-bold text-amber-400 mb-6 border-b border-slate-800 pb-3 uppercase tracking-wider">Our Location</h3>
                     <p class="text-slate-300 text-sm leading-relaxed mb-4">
                         📍 <strong>Rosina Cafe</strong><br>
-                        <!-- Adresas atnaujinamas iš Firebase -->
                         <span id="footer-address" class="text-white font-semibold">Purfleet Road, Aveley, South Ockendon RM15 4XT</span>
                     </p>
                     
@@ -168,7 +188,7 @@
                     </div>
                 </div>
                 
-                <!-- Skambučio mygtukas (Atnaujinamas iš Firebase) -->
+                <!-- Skambučio blokas -->
                 <div class="bg-slate-950/80 p-6 rounded-xl border border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4">
                     <div class="text-center sm:text-left">
                         <span class="text-xs text-slate-500">Telephone orders welcome</span>
@@ -206,7 +226,7 @@
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
 
-        // A. GYVAS STEBĖTOJAS (Stebi nustatymus, valandas, adresą ir telefoną debesyje!)
+        // A. Gyvas darbo laiko klausymasis iš Firebase Firestore!
         function listenToCafeSettings() {
             const hoursListContainer = document.getElementById('hours-list');
 
@@ -214,10 +234,9 @@
                 if (doc.exists) {
                     const data = doc.data();
                     
-                    // 1. Gyvai nuskaitome ir atnaujiname kontaktus visur svetainėje!
                     const rawAddress = data.address || "Purfleet Road, Aveley, South Ockendon RM15 4XT";
                     const rawPhone = data.phone || "01708 890003";
-                    const cleanPhone = rawPhone.replace(/\s+/g, ''); // pašaliname tarpus saugiam skambučiui
+                    const cleanPhone = rawPhone.replace(/\s+/g, ''); // pašaliname tarpus
 
                     // Atnaujiname adresus
                     document.getElementById('top-address').innerText = rawAddress;
