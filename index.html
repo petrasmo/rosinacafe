@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rosina Cafe | All Day Breakfast, Lunch & Dinner</title>
-    <!-- BŪTINA SAVYBĖ: įdėta Favicon (piktograma viršuje naršyklės skirtuke) -->
+    <!-- Įdėta Favicon (piktograma viršuje naršyklės skirtuke) -->
     <link rel="icon" type="image/png" href="logo.png">
     
     <!-- Šriftai iš Google Fonts -->
@@ -38,16 +38,16 @@
         </div>
     </div>
 
-    <!-- Navigacija (Header - Suproprogramuotas prisitaikymas telefonams be užlipimų) -->
+    <!-- Navigacija (Header - Suproprogramuotas prisitaikymas telefonams be užlipimų su lg: breakpointu) -->
     <nav class="bg-[#0f172a]/90 backdrop-blur-md border-b border-slate-900 sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col lg:flex-row justify-between items-center gap-4 lg:gap-0">
             <!-- Logotipas ir tekstas -->
             <a href="#home" class="flex items-center gap-3 group">
-                <img src="logo.png" alt="Rosina Cafe" class="h-12 md:h-14 w-auto object-contain transition group-hover:scale-105">
-                <span class="font-oswald text-xl md:text-2xl font-bold tracking-wider text-amber-400 whitespace-nowrap">ROSINA CAFE</span>
+                <img src="logo.png" alt="Rosina Cafe" class="h-12 lg:h-14 w-auto object-contain transition group-hover:scale-105">
+                <span class="font-oswald text-xl lg:text-2xl font-bold tracking-wider text-amber-400 whitespace-nowrap">ROSINA CAFE</span>
             </a>
-            <!-- Atnaujintos nuorodos (Nukeliamos žemiau telefono ekrane) -->
-            <div class="flex items-center justify-center flex-wrap gap-x-4 gap-y-2 text-xs md:text-sm font-semibold uppercase tracking-wider">
+            <!-- Nuorodos -->
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2 text-xs lg:text-sm font-semibold uppercase tracking-wider">
                 <a href="#home" class="hover:text-amber-400 transition text-slate-200">Home</a>
                 <a href="#story" class="hover:text-amber-400 transition text-slate-200">Our Story</a>
                 <a href="#menu" class="hover:text-amber-400 transition text-slate-200">Menu</a>
@@ -102,9 +102,9 @@
     <!-- Mūsų istorija su integruotu pieštu paveikslėliu -->
     <section id="story" class="py-20 bg-[#080c14] border-b border-slate-900 px-4">
         <div class="max-w-6xl mx-auto">
-            <div class="grid md:grid-cols-12 gap-12 items-center">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
                 <!-- Kairė pusė: Tekstas -->
-                <div class="md:col-span-6 space-y-6">
+                <div class="lg:col-span-6 space-y-6">
                     <span class="text-xs font-bold text-amber-400 uppercase tracking-widest">Nestled in South Ockendon</span>
                     <h2 class="text-3xl md:text-4xl font-bold text-white font-oswald uppercase tracking-wider">
                         Rosina Cafe: A Culinary Gem in South Ockendon
@@ -117,10 +117,9 @@
                     </p>
                 </div>
                 
-                <!-- Dešinė pusė: Jūsų gražus pieštas paveikslėlis -->
-                <div class="md:col-span-6 flex justify-center">
+                <!-- Dešinė pusė: Jūsų gražus pieštas paveikslėlis (cafe-building.png) -->
+                <div class="lg:col-span-6 flex justify-center">
                     <div class="relative group w-full">
-                        <!-- Švelnus geltonas švytėjimo efektas po paveikslėliu -->
                         <div class="absolute -inset-1 bg-gradient-to-r from-amber-400/20 to-amber-500/10 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
                         <img src="cafe-building.png" alt="Rosina Cafe Illustration" class="relative w-full h-auto object-cover rounded-2xl border border-slate-800 shadow-2xl">
                     </div>
@@ -145,15 +144,37 @@
         </div>
     </section>
 
-    <!-- Dinaminis Meniu Blokas -->
+    <!-- Dinaminis Meniu Blokas (Veikianti lokali kopija iš kodo) -->
     <main id="menu" class="max-w-6xl mx-auto px-4 py-20">
         <div class="text-center mb-16">
             <h2 class="text-3xl md:text-5xl font-extrabold text-white font-oswald uppercase tracking-wider">Our Menu</h2>
             <p class="text-slate-400 text-sm mt-2">Traditional meals prepared fresh on order.</p>
         </div>
 
-        <div id="dynamic-menu-container" class="space-y-16">
-            <p class="text-slate-500 text-center font-oswald">Loading Rosina Cafe Menu Database...</p>
+        <div class="mb-16">
+            <h3 class="font-oswald text-2xl font-bold text-amber-400 border-b border-slate-800 pb-3 mb-6 uppercase tracking-wider">
+                Set Breakfasts <span class="text-xs font-normal text-slate-500 lowercase">(includes Toast/Bread & Tea/Coffee)</span>
+            </h3>
+            <div id="set-breakfasts" class="grid md:grid-cols-3 gap-6"></div>
+        </div>
+
+        <div id="specials" class="grid md:grid-cols-2 gap-8 mb-16"></div>
+        <div id="classic-lists" class="grid md:grid-cols-2 gap-12 mb-16"></div>
+
+        <div class="bg-slate-900/40 border border-slate-800/80 p-8 rounded-2xl mb-16">
+            <h3 class="font-oswald text-xl font-bold text-amber-400 mb-6 border-b border-slate-800 pb-2 uppercase tracking-wider">Sandwiches & Rolls</h3>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm text-left text-slate-300">
+                    <thead class="text-xs uppercase bg-[#0f172a] text-amber-400">
+                        <tr>
+                            <th class="px-6 py-3 rounded-l-lg">Filling</th>
+                            <th class="px-6 py-3">Sandwich</th>
+                            <th class="px-6 py-3 rounded-r-lg">Roll</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sandwiches-list" class="divide-y divide-slate-850"></tbody>
+                </table>
+            </div>
         </div>
     </main>
 
@@ -288,163 +309,225 @@
             });
         }
 
-        // B. GYVAS PILNO MENIU NUSKAITYMAS IŠ FIREBASE FIRESTORE!
-        function listenToDynamicMenu() {
-            db.collection("menu").onSnapshot((snapshot) => {
-                const items = [];
-                snapshot.forEach((doc) => {
-                    const data = doc.data();
-                    if (data.enabled !== false) {
-                        items.push(data);
-                    }
-                });
-
-                renderMenu(items);
-            }, (error) => {
-                console.error("Firestore menu error:", error);
-            });
-        }
-
-        // C. IŠMANUS MENIU GENERAVIMAS (Pagal 6 bendras kategorijas ir subkategorijas)
-        function renderMenu(items) {
-            const container = document.getElementById('dynamic-menu-container');
-            let html = '';
-
-            const mainCategories = [
-                { name: "Breakfast", icon: "🍳" },
-                { name: "Mains", icon: "🍽️" },
-                { name: "Sandwiches, Rolls & Burgers", icon: "🥪" },
-                { name: "Salads", icon: "🥗" },
-                { name: "Kids & Desserts", icon: "🧸" },
-                { name: "Drinks", icon: "☕" }
-            ];
-
-            mainCategories.forEach(mainCat => {
-                const catItems = items.filter(it => it.category === mainCat.name);
-                if (catItems.length === 0) return;
-
-                html += `
-                    <div class="mb-16">
-                        <h2 class="font-oswald text-3xl font-extrabold text-white mb-8 border-b-2 border-amber-400 pb-3 uppercase tracking-wider flex items-center gap-3">
-                            <span>${mainCat.icon}</span> <span>${mainCat.name}</span>
-                        </h2>
-                `;
-
-                const subcategories = [...new Set(catItems.map(it => it.subcategory))];
-                const hasSandwichesAndRolls = subcategories.includes("Sandwiches") && subcategories.includes("Rolls");
-
-                subcategories.forEach(subName => {
-                    if (hasSandwichesAndRolls && (subName === "Sandwiches" || subName === "Rolls")) return;
-
-                    const subItems = catItems.filter(it => it.subcategory === subName);
-                    if (subItems.length === 0) return;
-
-                    html += `
-                        <div class="mb-10">
-                            <h3 class="font-oswald text-xl font-bold text-amber-400 mb-6 uppercase tracking-wider">
-                                ${subName}
-                            </h3>
-                    `;
-
-                    if (subName === "Set Breakfasts") {
-                        html += `
-                            <div class="grid md:grid-cols-3 gap-6">
-                                ${subItems.map(item => `
-                                    <div class="bg-[#111827]/60 backdrop-blur border border-slate-800 p-6 rounded-xl flex flex-col justify-between">
-                                        <div>
-                                            <h4 class="text-lg font-bold text-white uppercase tracking-tight font-oswald">${item.name}</h4>
-                                            <p class="text-slate-400 text-xs mt-2 leading-relaxed">${item.description || ''}</p>
-                                        </div>
-                                        <span class="text-amber-400 font-bold text-lg mt-4 block font-oswald">£${item.price}</span>
-                                    </div>
-                                `).join('')}
-                            </div>
-                        `;
-                    } else if (subName === "Specials") {
-                        html += `
-                            <div class="grid md:grid-cols-2 gap-8">
-                                ${subItems.map(item => `
-                                    <div class="bg-gradient-to-r from-amber-400/10 to-amber-400/5 border border-amber-400/30 p-8 rounded-2xl text-center space-y-3">
-                                        <h3 class="font-oswald text-2xl font-bold text-amber-400 tracking-wider">${item.name}</h3>
-                                        <p class="text-slate-300 text-sm">${item.description || ''}</p>
-                                        <p class="text-[11px] text-slate-500 uppercase tracking-widest">Served with Toast or Bread, Tea or Coffee</p>
-                                        <span class="text-2xl font-extrabold text-white block font-oswald">£${item.price}</span>
-                                    </div>
-                                `).join('')}
-                            </div>
-                        `;
-                    } else {
-                        html += `
-                            <div class="grid md:grid-cols-2 gap-x-12 gap-y-4">
-                                ${subItems.map(item => `
-                                    <div class="flex justify-between border-b border-slate-800/40 pb-2 text-sm">
-                                        <div class="flex flex-col">
-                                            <span class="font-semibold text-white">${item.name}</span>
-                                            ${item.description ? `<span class="text-xs text-slate-500">${item.description}</span>` : ''}
-                                        </div>
-                                        <strong class="text-white font-oswald">£${item.price}</strong>
-                                    </div>
-                                `).join('')}
-                            </div>
-                        `;
-                    }
-
-                    html += `</div>`;
-                });
-
-                if (hasSandwichesAndRolls) {
-                    const sandwiches = catItems.filter(it => it.subcategory === "Sandwiches");
-                    const rolls = catItems.filter(it => it.subcategory === "Rolls");
-                    const fillings = [...new Set(sandwiches.map(it => it.name.replace(" Sandwich", "")))];
-
-                    html += `
-                        <div class="mb-10">
-                            <h3 class="font-oswald text-xl font-bold text-amber-400 mb-6 uppercase tracking-wider">
-                                Sandwiches & Rolls
-                            </h3>
-                            <div class="bg-slate-900/40 border border-slate-800/80 p-8 rounded-2xl overflow-hidden">
-                                <div class="overflow-x-auto">
-                                    <table class="w-full text-sm text-left text-slate-300">
-                                        <thead class="text-xs uppercase bg-[#0f172a] text-amber-400">
-                                            <tr>
-                                                <th class="px-6 py-3 rounded-l-lg">Filling</th>
-                                                <th class="px-6 py-3">Sandwich</th>
-                                                <th class="px-6 py-3 rounded-r-lg">Roll</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="divide-y divide-slate-850">
-                                            ${fillings.map(filling => {
-                                                const sandItem = sandwiches.find(it => it.name === `${filling} Sandwich`);
-                                                const rollItem = rolls.find(it => it.name === `${filling} Roll`);
-                                                if (!sandItem && !rollItem) return '';
-                                                
-                                                return `
-                                                    <tr class="divide-x divide-slate-850">
-                                                        <td class="px-6 py-2.5 font-semibold text-white">${filling}</td>
-                                                        <td class="px-6 py-2.5">${sandItem ? `£${sandItem.price}` : '-'}</td>
-                                                        <td class="px-6 py-2.5">${rollItem ? `£${rollItem.price}` : '-'}</td>
-                                                    </tr>
-                                                `;
-                                            }).join('')}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                }
-
-                html += `</div>`;
-            });
-
-            container.innerHTML = html;
-        }
-
-        // Paleidžiame stebėtojus startuojant svetainei
+        // Paleidžiame stebėtoją
         document.addEventListener('DOMContentLoaded', () => {
-            listenToOpeningHours();
-            listenToDynamicMenu();
+            listenToCafeSettings();
+            generateMenu(); // Paleidžiame vietinio meniu generavimą iš kodo
         });
+
+
+        // === 2. MENIU GENERAVIMO LOGIKA (Lokali kopija greitam užkrovimui iš kodo) ===
+        const menuData = {
+            setBreakfasts: [
+                { id: "Set 1", desc: "Egg, bacon, sausage, baked beans, mushrooms & fried slice.", price: "£7.90" },
+                { id: "Set 2", desc: "Egg, bacon, sausage, baked beans & burger.", price: "£7.90" },
+                { id: "Set 3", desc: "Egg, bacon, black pudding, mushrooms & tomatoes.", price: "£7.90" },
+                { id: "Set 4", desc: "Egg, bacon, sausage, hash browns & tomatoes.", price: "£7.90" },
+                { id: "Set 5", desc: "2 Eggs, bacon, sausage, bubble & baked beans.", price: "£7.90" },
+                { id: "Set 6 (Vegetarian)", desc: "Hash browns, tomatoes, baked beans, mushrooms & veggie sausage.", price: "£7.90" }
+            ],
+            specials: [
+                { id: "BIG BOYS SPECIAL", desc: "Egg, bacon, sausage, hash brown, mushroom & beans.", note: "Served with Toast or Bread, Tea or Coffee", price: "£8.50" },
+                { id: "FAT BOYS SPECIAL", desc: "Egg, bacon, sausage, chips, tomato, black pudding, mushroom & beans.", note: "Served with Toast or Bread, Tea or Coffee", price: "£8.90" }
+            ],
+            categories: [
+                {
+                    title: "Breakfast Items",
+                    items: [
+                        { name: "Egg, Bacon", price: "£2.40" },
+                        { name: "Egg, Bacon & Beans", price: "£3.80" },
+                        { name: "Egg, Bacon, Chips & Beans", price: "£4.90" },
+                        { name: "Egg, Bacon, Bubble & Tomato", price: "£4.90" },
+                        { name: "2 Eggs on 2 Toast", price: "£3.20" },
+                        { name: "Beans on 2 Toast", price: "£3.20" },
+                        { name: "2 Scrambled Eggs on 2 Toast", price: "£3.80" },
+                        { name: "2 Poached Eggs on 2 Toast", price: "£3.80" },
+                        { name: "2 Cheese on 2 Toast", price: "£4.00" },
+                        { name: "2 Toast with Marmalade", price: "£1.50" },
+                        { name: "2 Toast with Jam", price: "£1.50" },
+                        { name: "2 Slices of Bread", price: "£1.00" },
+                        { name: "Roll with Butter", price: "£0.80" }
+                    ]
+                },
+                {
+                    title: "Omelettes",
+                    note: "with chips or salad",
+                    items: [
+                        { name: "Plain Omelette", price: "£3.90" },
+                        { name: "Cheese Omelette", price: "£4.60" },
+                        { name: "Ham Omelette", price: "£4.60" },
+                        { name: "Mushroom Omelette", price: "£4.50" },
+                        { name: "Spanish Omelette", price: "£4.90" },
+                        { name: "Sausage Omelette", price: "£4.50" },
+                        { name: "Ham & Cheese Omelette", price: "£5.40" }
+                    ]
+                },
+                {
+                    title: "Jacket Potatoes",
+                    items: [
+                        { name: "Plain Jacket Potato", price: "£3.20" },
+                        { name: "with Baked Beans", price: "£3.80" },
+                        { name: "with Cheese", price: "£3.80" },
+                        { name: "with Cheese & Baked Beans", price: "£4.60" },
+                        { name: "with Tuna & Sweetcorn", price: "£4.60" },
+                        { name: "with Chicken Curry", price: "£4.90" },
+                        { name: "with Chilli Con Carne", price: "£4.90" },
+                        { name: "with Spaghetti Sauce", price: "£4.90" }
+                    ]
+                },
+                {
+                    title: "Burgers",
+                    items: [
+                        { name: "Ham Burger", price: "£2.30" },
+                        { name: "Cheese Burger", price: "£2.50" },
+                        { name: "Chicken Burger", price: "£3.20" },
+                        { name: "Kingsize Burger", price: "£3.50" },
+                        { name: "1/4 Pounder", price: "£3.80" },
+                        { name: "1/2 Pounder", price: "£4.40" },
+                        { name: "Bacon Burger", price: "£4.60" },
+                        { name: "Egg Burger", price: "£4.30" },
+                        { name: "Veggie Burger", price: "£3.20" }
+                    ]
+                },
+                {
+                    title: "Home Made Salads",
+                    note: "with chips or boiled potatoes",
+                    items: [
+                        { name: "Ham Salad", price: "£5.80" },
+                        { name: "Cheese Salad", price: "£5.80" },
+                        { name: "Tuna Salad", price: "£5.60" },
+                        { name: "Chicken Salad", price: "£5.90" },
+                        { name: "Corned Beef Salad", price: "£5.90" }
+                    ]
+                },
+                {
+                    title: "Dinners",
+                    note: "with roast potatoes & 3 veg / chips & peas",
+                    items: [
+                        { name: "Roast Lamb, Roast Potatoes & 3 Veg", price: "£6.50" },
+                        { name: "Roast Beef, Roast Potatoes & 3 Veg", price: "£6.50" },
+                        { name: "Roast Chicken, Roast Potatoes & 3 Veg", price: "£6.50" },
+                        { name: "Roast Pork, Roast Potatoes & 3 Veg", price: "£6.50" },
+                        { name: "Lamb Chops, Chips & Mushrooms", price: "£6.40" },
+                        { name: "Pork Chops, Chips & Peas", price: "£6.40" },
+                        { name: "Steak, Chips, Egg & Onions", price: "£7.90" },
+                        { name: "Gammon Steak, Egg, Chips & Peas", price: "£5.90" },
+                        { name: "2 Sausages, Mash, Onion & Peas", price: "£4.90" },
+                        { name: "Mix Grill", price: "£6.80" },
+                        { name: "Special Grill", price: "£5.40" },
+                        { name: "Liver Special", price: "£6.40" }
+                    ]
+                },
+                {
+                    title: "Lunches",
+                    items: [
+                        { name: "Ham, Egg & Chips", price: "£4.60" },
+                        { name: "Corned Beef, Egg & Chips", price: "£4.40" },
+                        { name: "Shepherd's Pie, Chips & Peas", price: "£6.30" },
+                        { name: "Lasagne, Chips & Salad", price: "£6.30" },
+                        { name: "Chicken Curry, Rice & Chips", price: "£6.90" },
+                        { name: "Chilli Con Carne, Rice & Chips", price: "£6.40" },
+                        { name: "Spaghetti Bolognese", price: "£5.50" },
+                        { name: "Chicken Kiev, Chips & Salad", price: "£5.80" },
+                        { name: "Cod, Chips & Peas", price: "£5.60" },
+                        { name: "Grilled Chicken, Rice & Salad", price: "£6.90" },
+                        { name: "Steak & Kidney Pie, Chips & Peas", price: "£4.90" },
+                        { name: "Beef & Onion Pie, Mash & Peas", price: "£4.90" },
+                        { name: "Chicken & Mushroom Pie, Chips & Peas", price: "£4.90" },
+                        { name: "Chicken Nuggets, Chips & Beans", price: "£4.80" },
+                        { name: "Fish Fingers, Chips & Beans", price: "£4.80" },
+                        { name: "Chicken Shish, Rice/Chips, Salad & Pitta", price: "£6.90" },
+                        { name: "Kofte Kebab, Rice, Salad, Chips & Pitta", price: "£6.90" },
+                        { name: "Mix Kebab", price: "£7.40" }
+                    ]
+                },
+                {
+                    title: "Desserts",
+                    items: [
+                        { name: "Apple Pie with Custard", price: "£3.00" },
+                        { name: "Cherry Pie with Custard", price: "£3.00" },
+                        { name: "Jam Roly Poly with Custard", price: "£3.00" },
+                        { name: "Spotted Dick with Custard", price: "£3.00" },
+                        { name: "Ice Cream", price: "£2.00" }
+                    ]
+                },
+                {
+                    title: "Drinks",
+                    items: [
+                        { name: "Tea", price: "£1.20" },
+                        { name: "Coffee", price: "£1.50" },
+                        { name: "Cappuccino", price: "£1.80" },
+                        { name: "Hot Chocolate", price: "£1.80" },
+                        { name: "Fruit Tea", price: "£1.20" },
+                        { name: "Can Drink", price: "£1.00" },
+                        { name: "Home Made Milk Shake", price: "£3.00" }
+                    ]
+                }
+            ],
+            sandwiches: [
+                { fill: "Egg", sand: "£2.00", roll: "£1.50" },
+                { fill: "Bacon", sand: "£2.20", roll: "£1.80" },
+                { fill: "Sausage", sand: "£2.20", roll: "£1.80" },
+                { fill: "Cheese", sand: "£2.20", roll: "£1.80" },
+                { fill: "Ham", sand: "£2.20", roll: "£1.80" },
+                { fill: "Chicken", sand: "£2.20", roll: "£1.80" },
+                { fill: "Tuna", sand: "£2.10", roll: "£1.70" },
+                { fill: "Corned Beef", sand: "£2.10", roll: "£1.70" },
+                { fill: "Egg & Bacon", sand: "£2.80", roll: "£2.30" },
+                { fill: "Egg & Sausage", sand: "£2.80", roll: "£2.30" },
+                { fill: "Ham & Cheese", sand: "£2.80", roll: "£2.30" },
+                { fill: "Ham & Salad", sand: "£2.80", roll: "£2.30" },
+                { fill: "Chicken & Salad", sand: "£2.80", roll: "£2.30" },
+                { fill: "B.L.T", sand: "£2.80", roll: "£2.30" }
+            ]
+        };
+
+        function generateMenu() {
+            const setContainer = document.getElementById('set-breakfasts');
+            setContainer.innerHTML = menuData.setBreakfasts.map(item => `
+                <div class="bg-[#111827]/60 backdrop-blur border border-slate-800 p-6 rounded-xl flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-lg font-bold text-white uppercase tracking-tight font-oswald">${item.id}</h4>
+                        <p class="text-slate-400 text-xs mt-2 leading-relaxed">${item.desc}</p>
+                    </div>
+                    <span class="text-amber-400 font-bold text-lg mt-4 block font-oswald">£${item.price}</span>
+                </div>
+            `).join('');
+
+            const specContainer = document.getElementById('specials');
+            specContainer.innerHTML = menuData.specials.map(item => `
+                <div class="bg-gradient-to-r from-amber-400/10 to-amber-400/5 border border-amber-400/30 p-8 rounded-2xl text-center space-y-3">
+                    <h3 class="font-oswald text-2xl font-bold text-amber-400 tracking-wider">${item.id}</h3>
+                    <p class="text-slate-300 text-sm">${item.desc}</p>
+                    <p class="text-[11px] text-slate-500 uppercase tracking-widest">Served with Toast or Bread, Tea or Coffee</p>
+                    <span class="text-2xl font-extrabold text-white block font-oswald">£${item.price}</span>
+                </div>
+            `).join('');
+
+            const classicContainer = document.getElementById('classic-lists');
+            classicContainer.innerHTML = menuData.categories.map(cat => `
+                <div class="bg-slate-900/40 border border-slate-800/80 p-8 rounded-2xl">
+                    <h3 class="font-oswald text-xl font-bold text-amber-400 mb-6 border-b border-slate-800 pb-2 uppercase tracking-wider">
+                        ${cat.title} ${cat.note ? `<span class="text-xs font-normal text-slate-500 lowercase">(${cat.note})</span>` : ''}
+                    </h3>
+                    <ul class="space-y-3.5 text-sm">
+                        ${cat.items.map(item => `
+                            <li class="flex justify-between border-b border-slate-800/40 pb-2">
+                                <span>${item.name}</span>
+                                <strong class="text-white font-oswald">${item.price}</strong>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+            `).join('');
+
+            const sandContainer = document.getElementById('sandwiches-list');
+            sandContainer.innerHTML = menuData.sandwiches.map(row => `
+                <td class="px-6 py-2.5 font-semibold text-white">${row.fill}</td>
+                <td class="px-6 py-2.5">${row.sand}</td>
+                <td class="px-6 py-2.5">${row.roll}</td>
+            `).map(html => `<tr class="divide-x divide-slate-850">${html}</tr>`).join('');
+        }
     </script>
 </body>
 </html>
